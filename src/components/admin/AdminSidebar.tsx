@@ -21,6 +21,7 @@ import {
   Settings,
   Compass,
   FileSpreadsheet,
+  Table,
   Newspaper,
   Leaf,
   ExternalLink,
@@ -319,6 +320,7 @@ export function AdminSidebar() {
                     <>
                       {renderItem('/admin/operations', 'Mining Operations', Compass, pathname.startsWith('/admin/operations'), '10', 'bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border border-amber-200')}
                       {renderItem('/admin/reports', 'Financial Results', FileSpreadsheet, pathname.startsWith('/admin/reports'), '11', 'bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200')}
+                      {renderItem('/admin/results', 'PDF to HTML Results', Table, pathname.startsWith('/admin/results'), 'New', 'bg-violet-100 dark:bg-violet-950/80 text-violet-700 dark:text-violet-300 border border-violet-200')}
                       {renderItem('/admin/news', 'SENS Releases', Newspaper, pathname.startsWith('/admin/news'), 'SENS', 'bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 border border-amber-200')}
                       {renderItem('/admin/sustainability', '2030 ESG Targets', Leaf, pathname.startsWith('/admin/sustainability'), 'ESG', 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200')}
                     </>
@@ -376,6 +378,7 @@ export function AdminSidebar() {
                   {renderItem('/admin/clients', 'Clients & Websites', Users, pathname.startsWith('/admin/clients'), String(clients.length))}
                   {renderItem('/admin/create', 'Create Website', Sparkles, pathname.startsWith('/admin/create'), 'Wizard', 'bg-blue-100 dark:bg-sky-950 text-bastion-blue dark:text-sky-300 border border-blue-200 dark:border-sky-800')}
                   {renderItem('/admin/billing', 'Commercial & Billing', CreditCard, pathname.startsWith('/admin/billing'))}
+                  {renderItem('/admin/results', 'PDF to HTML Results', Table, pathname.startsWith('/admin/results'), 'New', 'bg-violet-100 dark:bg-violet-950/80 text-violet-700 dark:text-violet-300 border border-violet-200')}
                 </div>
               </div>
 

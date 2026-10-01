@@ -13,6 +13,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
   const pathname = usePathname();
   const isAdmin = pathname?.startsWith('/admin');
   const isClientSite = pathname?.startsWith('/sites') || pathname?.startsWith('/preview');
+  const isResultsPublication = pathname?.startsWith('/results');
 
   const [assistantOpen, setAssistantOpen] = useState(false);
   const [assistantPrompt, setAssistantPrompt] = useState<string | undefined>();
@@ -23,7 +24,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
 
   // Global event listeners for contextual opening
   useEffect(() => {
-    if (isAdmin || isClientSite) return;
+    if (isAdmin || isClientSite || isResultsPublication) return;
 
     const handleOpenAssistant = (e: Event) => {
       const customEvent = e as CustomEvent<{ prompt?: string; context?: string }>;
@@ -43,7 +44,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
       window.removeEventListener('open-assistant', handleOpenAssistant);
       window.removeEventListener('open-report-pack', handleOpenPack);
     };
-  }, [isAdmin, isClientSite]);
+  }, [isAdmin, isClientSite, isResultsPublication]);
 
   const openAssistant = (prompt?: string, context?: string) => {
     setAssistantPrompt(prompt);
@@ -51,7 +52,7 @@ export const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) 
     setAssistantOpen(true);
   };
 
-  if (isAdmin || isClientSite) {
+  if (isAdmin || isClientSite || isResultsPublication) {
     return <>{children}</>;
   }
 
