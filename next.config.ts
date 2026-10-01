@@ -3,9 +3,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: path.join(__dirname),
-  serverExternalPackages: ['@libsql/client', 'libsql'],
+  serverExternalPackages: ['@libsql/client', 'libsql', 'pdfjs-dist'],
   outputFileTracingIncludes: {
-    '/**': ['./studio.db', './src/lib/db/schema.sql', './src/content/**/*'],
+    '/**': ['./studio.db', './src/lib/db/schema.sql', './src/content/**/*', './fixtures/**/*'],
   },
   images: {
     remotePatterns: [
